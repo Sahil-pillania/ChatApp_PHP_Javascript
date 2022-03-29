@@ -1,5 +1,5 @@
 //console.log("javascript");
-const passField = document.querySelector(".form input[type='password']");
+const passField = document.querySelector(".form input[type='password']"),
 togglebtn = document.querySelector(".form .field i");
 
 togglebtn.onclick = ()=>{
