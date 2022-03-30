@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once "config.php";
 $fname = mysqli_real_escape_string($conn, $_POST['fname']);
 $lname = mysqli_real_escape_string($conn, $_POST['lname']);
@@ -10,15 +10,15 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($password)){
         // let's check user email is valid or not 
         if(filter_var($email, FILTER_VALIDATE_EMAIL )){
             $sql = mysqli_query($conn, "SELECT email FROM users WHERE email = '{$email}'");
-            if(mysqli_num_row($sql) >0){ // if email already exists
+            if(mysqli_num_rows($sql) >0){ // if email already exists
                 echo "$email - already exists";
             }else{
                 // let's check user upload file or not
-                if(isset($_FILES['file'])){
+                if(isset($_FILES['image'])){
                     //if file is uploaded
                     $img_name = $_FILES['image']['name']; // getting user uploaded img name
                     $img_type = $_FILES['image']['type']; // getting user uploaded img type
-                    $tmp_name = $_FILES['image']['temp_name']; // getting img temp name to save/move file in folder
+                    $tmp_name = $_FILES['image']['tmp_name']; // getting img temp name to save/move file in folder
                     
                     // exploding image and get the last extension
                     $img_explode = explode(".", $img_name);
@@ -41,9 +41,9 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($password)){
                         if($sql2){
                             // if these data inserted
                             $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
-                            if(mysqli_num_row($sql3) >0){
+                            if(mysqli_num_rows($sql3) >0){
                                 $row = mysqli_fetch_assoc($sql3);
-                                $_SESSION['unique_id']; // using this session we used user unique_id in other php file
+                                $_SESSION['unique_id'] = $row['unique_id']; // using this session we used user unique_id in other php file
                                 echo "success";
                             }
                         }else{
@@ -51,7 +51,7 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($password)){
                         }
                         }
                     }else{
-                        echo "Plese select an Image file -jpeg, jpg, png! format";
+                        echo "Please select an Image file -jpeg, jpg, png! format";
                     }
                 }else{
                     echo "Please select an image file!";
