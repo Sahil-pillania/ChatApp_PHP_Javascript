@@ -33,7 +33,22 @@ if(!empty($fname) && !empty($lname) && !empty($email) && !empty($password)){
                         
                         if(move_uploaded_file($tmp_name, "images/".$new_img_name)){
                         $status = "Active now"; 
-                        $random_id = ran(time(). 10000000);
+                        $random_id = rand(time(), 10000000);
+
+                        //  let's insert all user data inside table 
+                        $sql2 = mysqli_query($conn, "INSERT INTO users (unique_id, fname , lname, email, password, img , status) VALUES ({$random_id}, '{$fname}','{$lname}', '{$email}', '{$password}', '{$new_img_name}',  '{$status}')");
+
+                        if($sql2){
+                            // if these data inserted
+                            $sql3 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
+                            if(mysqli_num_row($sql3) >0){
+                                $row = mysqli_fetch_assoc($sql3);
+                                $_SESSION['unique_id']; // using this session we used user unique_id in other php file
+                                echo "success";
+                            }
+                        }else{
+                            echo "Something went wrong";
+                        }
                         }
                     }else{
                         echo "Plese select an Image file -jpeg, jpg, png! format";
