@@ -26,62 +26,9 @@ if(!isset($_SESSION['unique_id'])){
           </div>
         </header>
         <div class="chat-box">
-          <div class="chat outgoing">
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="../profiles/img2.jpg" alt="" />
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
 
-          <div class="chat outgoing">
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="../profiles/img2.jpg" alt="" />
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="../profiles/img2.jpg" alt="" />
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="../profiles/img2.jpg" alt="" />
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat outgoing">
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
-          <div class="chat incoming">
-            <img src="../profiles/img2.jpg" alt="" />
-            <div class="details">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </div>
+          <!-- dynamic data  -->
+
         </div>
         <form action="#" class="typing-area" autocomplete="off" >
           <input type="text" name="outgoing_id" value=<?php echo $_SESSION['unique_id']; ?> hidden>
