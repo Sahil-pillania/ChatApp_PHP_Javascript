@@ -23,7 +23,7 @@ if(isset($_SESSION['unique_id'])){
               </div>';
             }else {
                 // he is msg receiver
-                $output = '
+                $output .= '
                 <div class="chat incoming">
                 <img src="../php/images/'. $row['img'] .'" alt="" />
                 <div class="details">
