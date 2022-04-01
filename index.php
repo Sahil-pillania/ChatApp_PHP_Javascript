@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION['unique_id'])){// if user is logged in 
+  header("location: files/users.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -27,6 +27,14 @@ sendBtn.onclick = ()=>{
     xhr.send(formData);
 }
 
+chatBox.onmouseenter = ()=>{
+    chatBox.classList.add("active");
+}
+chatBox.onmouseleave = ()=>{
+    chatBox.classList.remove("active");
+}
+
+
 setInterval(() => {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "../php/get-chat.php", true);
@@ -37,6 +45,10 @@ setInterval(() => {
                 //console.log(data);
                 
                     chatBox.innerHTML = data;
+                    if(!chatBox.classList.contains("active")){
+                        scrolltoBottom();
+
+                    }
                 
             }
         }
@@ -44,3 +56,7 @@ setInterval(() => {
     let formData = new FormData(form);
     xhr.send(formData);
 }, 500);
+
+function scrolltoBottom(){
+    chatBox.scrollTop = chatBox.scrollHeight;
+};
