@@ -1,6 +1,8 @@
 # ChatApp_PHP_Javascript
-# PHP # JAVASCIPT
-# HTML # CSS
+# PHP    
+# JAVASCIPT
+# HTML 
+# CSS
 
 ## Sample pictures:-
 ## Signup 
